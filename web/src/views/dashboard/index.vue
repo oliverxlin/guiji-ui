@@ -4,11 +4,19 @@
   </div>
 </template>
  
+
+
+
+
 <script>
+
+import axios from 'axios';
+console.log("21312")
 export default {
   name: 'Echarts',
   methods: {
     myEcharts(){
+
       var myChart = this.$echarts.init(document.getElementById('main'));
       //配置图表
       function randomData() {
@@ -86,12 +94,29 @@ export default {
             }
           ]
         });
-      }, 10);
+      }, 1000);
       myChart.setOption(option);
+    },
+    getData() {
+      // 设置对应python的接口，这里使用的是localhost:5000
+      const path = 'http://127.0.0.1:5000/server/testget';
+      // 这里要使用 res =>表示返回的数据
+      console.log(path);
+      axios.get(path).then(res => {
+        // 这里服务器返回response为一个json对象
+        // 通过.data来访返回的数据，然后在通过.变量名进行访问
+        // 可以直接通过response.data取得key-value
+        // var msg = res.data.msg;
+        // this.serverResponse = msg; // 因为不能直接使用this作为指针，因此在这之前将this赋给了then指针
+        // alter('Success' + response.status + ',' + response.data + ',' + msg); // 成功后显示提示
+        console.log("get success");
+      }).catch(error => {
+        console.error(error);
+      });
     }
   },
   mounted(){
-    this.myEcharts();
+    this.myEcharts(), this.getData();
   }
 }
 </script>
