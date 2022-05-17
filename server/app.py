@@ -1,4 +1,3 @@
-# @Author  : lwh
 from flask import Flask
 from apps.manager import bp as blueprint
 from flask_cors import *
