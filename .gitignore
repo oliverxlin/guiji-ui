@@ -5,7 +5,8 @@ yarn-debug.log*
 yarn-error.log*
 package-lock.json
 tests/**/coverage/
-
+data/
+__pycache__/
 # Editor directories and files
 .idea
 .vscode
@@ -13,3 +14,4 @@ tests/**/coverage/
 *.ntvs*
 *.njsproj
 *.sln
+*.pyc
