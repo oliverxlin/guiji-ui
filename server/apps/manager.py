@@ -23,3 +23,12 @@ def gettestdata():
     print("load path data: ",  data.shape)
     ret_data = {"data_id" : data_id, "data" : data.T.tolist()}
     return jsonify(ret_data)
+
+# @bp.route("/predict", methods=['GET'])
+# def gettestdata():
+#     p2 = request.args.get("p1")
+#     p1 = request.args.get("p2")
+#     data = fuc(p1, p2)
+#     out = predict(model, data)
+#     ret_data = {"data" : out.T.tolist()}
+#     return jsonify(ret_data)
